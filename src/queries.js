@@ -1,4 +1,8 @@
-export const ARTICLES_QUERY = `
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const ARTICLES_QUERY = `
   query Articles ($first: Int!, $after: String) {
     data: articles (first: $first, after: $after) {
       pageInfo {
@@ -48,14 +52,14 @@ export const ARTICLES_QUERY = `
           }
           tags
           title
-          url
+          onlineStoreUrl
         }
       }
     }
   }
-`
+`;
 
-export const BLOGS_QUERY = `
+const BLOGS_QUERY = `
   query Blogs ($first: Int!, $after: String) {
     data: blogs(first: $first, after: $after) {
       pageInfo {
@@ -70,14 +74,14 @@ export const BLOGS_QUERY = `
           handle
           id
           title
-          url
+          onlineStoreUrl
         }
       }
     }
   }
-`
+`;
 
-export const COLLECTIONS_QUERY = `
+const COLLECTIONS_QUERY = `
   query Collections ($first: Int!, $after: String) {
     data: collections (first: $first, after: $after) {
       pageInfo {
@@ -113,9 +117,9 @@ export const COLLECTIONS_QUERY = `
       }
     }
   }
-`
+`;
 
-export const COLLECTION_QUERY = `query SingleCollection ($handle: String!, $first: Int!, $after: String) {
+const COLLECTION_QUERY = `query SingleCollection ($handle: String!, $first: Int!, $after: String) {
   collection: collectionByHandle (handle: $handle) {
     products (sortKey: COLLECTION_DEFAULT, first: $first, after: $after) {
       pageInfo {
@@ -129,9 +133,9 @@ export const COLLECTION_QUERY = `query SingleCollection ($handle: String!, $firs
       }
     }
   }
-}`
+}`;
 
-export const PRODUCTS_QUERY = `
+const PRODUCTS_QUERY = `
   query Products ($first: Int!, $after: String) {
     data: products (first: $first, after: $after) {
       pageInfo {
@@ -170,14 +174,6 @@ export const PRODUCTS_QUERY = `
                   id
                   originalSrc
                 }
-                metafields(first: 250) {
-                  edges {
-                    node {
-                      key
-                      value
-                    }
-                  }
-                }
                 price: priceV2 {
                   amount
                   currencyCode
@@ -214,14 +210,6 @@ export const PRODUCTS_QUERY = `
           descriptionHtml
           handle
           id
-          metafields(first: 250) {
-            edges {
-              node {
-                key
-                value
-              }
-            }
-          }
           onlineStoreUrl
           options {
             id
@@ -248,9 +236,9 @@ export const PRODUCTS_QUERY = `
       }
     }
   }
-`
+`;
 
-export const SHOP_QUERY = `
+const SHOP_QUERY = `
   query Shop {
     shop {
       description
@@ -280,9 +268,9 @@ export const SHOP_QUERY = `
       }
     }
   }
-`
+`;
 
-export const PRODUCT_TYPES_QUERY = `
+const PRODUCT_TYPES_QUERY = `
   query ProductTypes ($first: Int!) {
     data: productTypes(first: $first) {
       pageInfo {
@@ -294,8 +282,8 @@ export const PRODUCT_TYPES_QUERY = `
       }
     }
   }
-`
-export const PRODUCT_TAGS_QUERY = `
+`;
+const PRODUCT_TAGS_QUERY = `
   query ProductTags ($first: Int!) {
     data: productTags(first: $first) {
       pageInfo {
@@ -307,9 +295,9 @@ export const PRODUCT_TAGS_QUERY = `
       }
     }
   }
-`
+`;
 
-export const PAGES_QUERY = `
+const PAGES_QUERY = `
   query Pages ($first: Int!) {
     data: pages (first: $first) {
       pageInfo {
@@ -329,4 +317,14 @@ export const PAGES_QUERY = `
       }
     }
   }
-`
+`;
+
+exports.ARTICLES_QUERY = ARTICLES_QUERY;
+exports.BLOGS_QUERY = BLOGS_QUERY;
+exports.COLLECTIONS_QUERY = COLLECTIONS_QUERY;
+exports.COLLECTION_QUERY = COLLECTION_QUERY;
+exports.PAGES_QUERY = PAGES_QUERY;
+exports.PRODUCTS_QUERY = PRODUCTS_QUERY;
+exports.PRODUCT_TAGS_QUERY = PRODUCT_TAGS_QUERY;
+exports.PRODUCT_TYPES_QUERY = PRODUCT_TYPES_QUERY;
+exports.SHOP_QUERY = SHOP_QUERY;
